@@ -2,6 +2,7 @@
     background-color: #2b2b2b;
     color: white;
     padding: 15px 20px;
+    width: 100%;
   }
   
   .footer-container {
@@ -35,23 +36,6 @@
     background-position: center;
     border-radius: 50%;
   }
-  
-  /* Iconos con colores personalizados */
-  .social-icon.twitter {
-    background-image: url('./imagenes/twitter-icon.png'); /* reemplaza con tus íconos reales */
-    background-color: #1da1f2;
-  }
-  
-  .social-icon.instagram {
-    background-image: url('./imagenes/instagram-icon.png');
-    background-color: #e1306c;
-  }
-  
-  .social-icon.github {
-    background-image: url('./imagenes/github-icon.png');
-    background-color: #333;
-  }
-  
 
   .footer-social {
     display: flex;

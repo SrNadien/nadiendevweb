@@ -3,7 +3,7 @@
     color: white;
     padding: 15px 20px;
     width: 100%;
-    position: sticky;
+    margin-top: 14px; /* Asegura que el footer esté en la parte inferior */
   }
   
   .footer-container {

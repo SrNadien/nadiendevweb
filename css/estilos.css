@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header .logo img {
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 1rem;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Hero Section */
+  .hero {
+    flex: 1;
+    position: relative;
+    background: #00bcd4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .circle-image,
+  .circle-text {
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+  }
+  
+  .circle-image {
+    width: 300px;
+    height: 300px;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .circle-text {
+    width: 350px;
+    height: 350px;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .circle-text h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .circle-text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    background: #00acc1;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  footer {
+    background: #f4f4f4;
+    background-color: lime;
+    color: #333;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+  }
+  
+  footer .footer-logo img {
+    height: 30px;
+  }
+  
+  footer .social a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+  }
+
+  

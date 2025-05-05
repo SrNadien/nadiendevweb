@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NadienDev™ - Inicio</title>
+  <title>NadienDev™ - Contacto</title>
   <link rel="stylesheet" href="./css/estilos.css">
+  <link rel="stylesheet" href="/css/contacto.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="./imagenes/logo.png" alt="NadienDev™ Logo">
+      <img src="/imagenes/./imagenes/logo.png" alt="NadienDev™ Logo">
     </div>
     <nav>
       <ul>
@@ -21,16 +23,37 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="circle-image">
-      <img src="./imagenes/logo.png" alt="Foto de desarrollador">
-    </div>
-    <div class="circle-text">
-      <h2>Nuestros proyectos</h2>
-      <p>Descubre cómo fusiono creatividad y eficiencia en cada desarrollo. Con más de 3 años de experiencia como developer semi senior en JavaScript, HTML y CSS, creo soluciones web modernas y optimizadas.</p>
-      <a href="proyectos.html" class="btn">Ver Proyectos</a>
-    </div>
-  </section>
+  <main>
+    <section class="contacto">
+      <div class="contacto-container">
+        <div class="contacto-img-wrapper">
+          <img src="/imagenes/logo.png" alt="Personas corriendo" class="contacto-img" />
+        </div>
+  
+        <div class="contacto-form-info">
+          <div class="formulario">
+            <h2>Contáctenos</h2>
+            <form action="#" method="post">
+              <input type="text" name="nombre" placeholder="Enter your Name" required>
+              <input type="email" name="email" placeholder="Enter a valid email address" required>
+              <textarea name="mensaje" rows="3" placeholder="Mensaje..." required></textarea>
+              <button type="submit">ENTREGAR</button>
+            </form>
+          </div>
+  
+          <div class="info-contacto">
+            <ul>
+              <li><strong>Twitter</strong><br></li>
+              
+              <li><strong>🕒 Horario de Atención</strong><br>Lunes a viernes de 10 a 20 h, sábados y domingos... Cerrado</li>
+            </ul>
+            <p style="font-size: 12px;"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
 
   <footer class="footer">
     <div class="footer-container">

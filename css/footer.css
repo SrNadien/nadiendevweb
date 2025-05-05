@@ -3,6 +3,7 @@
     color: white;
     padding: 15px 20px;
     width: 100%;
+    position: sticky;
   }
   
   .footer-container {

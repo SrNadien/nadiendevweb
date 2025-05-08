@@ -1,0 +1,65 @@
+.footer {
+    background-color: #109bf8;
+    color: white;
+    padding: 15px 20px;
+    width: 100%;
+    margin-top: 14px; /* Asegura que el footer esté en la parte inferior */
+  }
+  
+  .footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+  
+  .footer p {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-icon.twitter { background-color: #1da1f2; }
+  .social-icon.instagram { background-color: #e1306c; }
+  .social-icon.github { background-color: #333; }
+  
+  .social-icon:hover {
+    opacity: 0.8;
+  }

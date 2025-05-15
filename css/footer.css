@@ -1,65 +1,83 @@
-.footer {
-    background-color: #109bf8;
-    color: white;
-    padding: 15px 20px;
-    width: 100%;
-    margin-top: 14px; /* Asegura que el footer esté en la parte inferior */
-  }
-  
-  .footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .footer-logo img {
-    height: 50px;
-    width: auto;
-  }
-  
-  .footer p {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .footer-social {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .social-icon {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  .footer-social {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    font-size: 18px;
-    color: white;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .social-icon.twitter { background-color: #1da1f2; }
-  .social-icon.instagram { background-color: #e1306c; }
-  .social-icon.github { background-color: #333; }
-  
-  .social-icon:hover {
-    opacity: 0.8;
-  }
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    color: #f1f1f1;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    display: inline-block;
+    background-size: cover;
+}
+
+.social-icons .icon:hover {
+    opacity: 0.7;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #656565;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-outline-primary {
+  color: #7AB730;
+  border-color: #7AB730;
+}
+
+.btn-square {
+  width: 36px;
+  height: 36px;
+}
+
+.omar{
+    color: aqua;
+}

@@ -1,9 +1,0 @@
-.card-link {
-    text-decoration: none;   /* Quita el subrayado */
-    color: inherit;          /* Usa el color del texto padre */
-    display: inline-block;   /* Para que no afecte el layout */
-  }
-  
-  .card-link:hover {
-    text-decoration: underline; /* Opcional */
-  }

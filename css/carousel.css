@@ -1,0 +1,61 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* altura fija */
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-track img {
+    flex: 0 0 100%;  /* cada slide ocupa todo el ancho */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Indicadores */
+.carousel-indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    border-radius: 50%;
+    border: none;
+    background: #bbb;
+    cursor: pointer;
+}
+
+.carousel-indicators button.active {
+    background: #333;
+}

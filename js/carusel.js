@@ -1,44 +1,93 @@
-// Carousel
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-const indicatorsContainer = document.querySelector('.carousel-indicators');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Selección de elementos y variables
+    const track = document.querySelector('.carousel-track');
+    const cards = Array.from(track.children);
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
 
-let currentIndex = 0;
+    let currentCardIndex = 0;
+    const intervalTime = 5000;
+    let autoSlideInterval;
 
-// Crear indicadores dinámicos
-slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    if (i === 0) btn.classList.add('active');
-    indicatorsContainer.appendChild(btn);
-});
-
-const indicators = Array.from(indicatorsContainer.children);
-
-function updateCarousel() {
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    indicators.forEach((btn, i) => {
-        btn.classList.toggle('active', i === currentIndex);
+    // 2. Crea los indicadores de posición (un botón por cada tarjeta)
+    cards.forEach((card, index) => {
+        const indicator = document.createElement('button');
+        indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        indicatorsContainer.appendChild(indicator);
     });
-}
 
-// Botón siguiente
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
-});
+    const indicators = Array.from(indicatorsContainer.children);
 
-// Botón anterior
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-});
+    // 3. Función principal para actualizar el carrusel
+    function updateCarousel() {
+        const transformValue = `translateX(-${currentCardIndex * 100}%)`;
+        track.style.transform = transformValue;
 
-// Indicadores clicables
-indicators.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-        currentIndex = i;
+        // El botón 'anterior' se deshabilita si no hay funcionalidad de bucle invertido.
+        // Como el bucle invertido está implementado, no es necesario deshabilitarlo.
+        // prevButton.disabled = currentCardIndex === 0;
+
+        // Actualiza los indicadores
+        indicators.forEach((indicator, index) => {
+            if (index === currentCardIndex) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+
+    // 4. Lógica de avance automático
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            if (currentCardIndex >= cards.length - 1) {
+                currentCardIndex = 0; // Vuelve al inicio
+            } else {
+                currentCardIndex++;
+            }
+            updateCarousel();
+        }, intervalTime);
+    }
+
+    // 5. Reinicia el temporizador al interactuar con los botones
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // 6. Funcionalidad de los botones
+    nextButton.addEventListener('click', () => {
+        if (currentCardIndex >= cards.length - 1) {
+            currentCardIndex = 0; // Si llega al final, vuelve al inicio
+        } else {
+            currentCardIndex++;
+        }
         updateCarousel();
+        resetAutoSlide();
     });
+
+    prevButton.addEventListener('click', () => {
+        if (currentCardIndex <= 0) {
+            currentCardIndex = cards.length - 1; // Si está en la primera, va a la última
+        } else {
+            currentCardIndex--;
+        }
+        updateCarousel();
+        resetAutoSlide();
+    });
+
+    // 7. Funcionalidad de los indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentCardIndex = index;
+            updateCarousel();
+            resetAutoSlide();
+        });
+    });
+
+    // 8. Inicializa el carrusel y el avance automático
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+    startAutoSlide();
 });

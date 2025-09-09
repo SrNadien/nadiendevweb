@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/footert.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/carousel.css">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         main { padding: 20px; text-align: center; }
         .descripcion { margin-bottom: 30px; }
@@ -20,7 +21,7 @@
 
 <header>
     <nav id="header">
-        <img src="./img/logo.png" alt="Logo" id="logo" height="40" width="60">
+        <img src="./img/nwelogo1.png" alt="Logo" id="logo" height="64" width="64">
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="proyectos.html">Proyectos</a></li>
@@ -35,37 +36,89 @@
 </header>
 
 <main>
-    <!-- Carrusel de proyectos -->
-    <section class="carousel-container">
-    <div class="carousel">
-        <button class="prev">&#10094;</button>
+ <section class="projects"><br>
+    <h1 class="textpytcolor">Mis Proyectos</h1>
+    <div class="carousel-container">
         <div class="carousel-track">
-            <img src="https://media.tenor.com/sELLevx25fUAAAAe/simpsons-smoking.png" alt="Proyecto 1">
-            <img src="https://media.forgecdn.net/avatars/thumbnails/1138/934/256/256/638701627221888809.png" alt="Proyecto 2">
-            <img src="https://media.forgecdn.net/avatars/thumbnails/1247/598/256/256/638814636995904161.png" alt="Proyecto 3">
-            <img src="./img/mt.png" alt="Proyecto 4">
-            <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="Proyecto 5">
+            <div class="project-card">
+                <img src="https://media.tenor.com/sELLevx25fUAAAAe/simpsons-smoking.png" alt="Proyecto 1">
+                <h3>Paty Y Selma </h3>
+                <p>Bot De Discord hecho en Nodejs v14</p>
+            </div>
+            <div class="project-card">
+                <img src="https://media.forgecdn.net/avatars/thumbnails/1138/934/256/256/638701627221888809.png" alt="Proyecto 2">
+                <h3>Ultimate Utilities </h3>
+                <p>Mod Minecraft Addon KUBEJS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://media.forgecdn.net/avatars/thumbnails/1247/598/256/256/638814636995904161.png" alt="Proyecto 1">
+                <h3>No Netherite Template</h3>
+                <p>Mod De Minecraft</p>
+                <p>Desaactiva a template de netherite y la de algunos otros mods de la mesa de herreria</p>
+            </div>
+            <div class="project-card">
+                <img src="./img/mt.png" alt="Proyecto 1">
+                <h3>Mates Travel</h3>
+                <p>Pantilla We Turismo</p>
+                <p>Diseñada por <a href="https://github.com/SrNadien">SrNadien</a> Y <a href="https://github.com/OMARMENDOZA1972">Omar Abud </a></p>
+                <p><a href="https://kingnadiendev.github.io/MatesTravel2.0">Mates Travel Web</a></p>
+            </div>
+            <div class="project-card">
+                <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="Proyecto 1">
+                <h3>PROXIMAMENTE</h3>
+                <p>Hosting WEB AND GAMING</p>
+                <p>Diseñada por <a href="https://github.com/SrNadien">SrNadien</a></p>
+                <p><a href="https://github.com/SrNadien">PROXIMAMENTE</a></p>
+            </div>
         </div>
-        <button class="next">&#10095;</button>
+
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+
+        <div class="carousel-indicators"></div>
     </div>
-    <div class="carousel-indicators"></div>
 </section>
     <!-- Sección de descripción -->
-    <section class="descripcion">
-        <h1 class="dd">Descripción</h1>
-        <p>Bienvenido a mi portafolio. Descubre mis proyectos y habilidades aquí.</p>
-        <img id="descripcionImg" src="./img/logo.png" alt="Imagen Descripción">
-    </section>
+<section class="descripcion">
+    <h1 class="dd" id="descripcion">Descripción</h1>
+    <p>Bienvenido a mi portafolio. Descubre mis proyectos y habilidades aquí.</p>
+
+    <div class="tarjeta-imagen">
+        <img id="descripcionImg" src="./img/icon.webp" alt="Imagen Descripción">
+        <p class="pie-imagen"></p>
+    </div>
+</section>
 
     
 </main>
 
-<footer>
-    <div class="social-icons">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
+<footer class="footer">
+  <div class="footer-links">
+    <div class="link-group">
+      <a href="index.html">inicio</a>
     </div>
+    <div class="link-group">
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="link-group">
+      <a href="proyectos.html">Proyectos </a>
+    </div>
+    <div class="link-group">
+      <a href="#descripcion">Descripcion</a>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/nadien-dev-4a0782381" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+    <a href="https://www.tiktok.com/@nadiendev" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-tiktok"></i></i></a>
+    <a href="https://x.com/kingnadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://github.com/SrNadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://youtube.com/@srnadien717" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <div class="copyright">
+    <p class="omar">Creado Por NadienDev</p>
+  </div>
 </footer>
 
 <!-- Modal de la imagen de descripción -->
@@ -84,28 +137,15 @@
 </a>
 <button id="scrollTop" class="scroll-top">↑</button>
 
-<script>
+<!-- <script>
     // Modal
-    const modal = document.getElementById("descripcionModal");
-    const img = document.getElementById("descripcionImg");
-    const span = document.querySelector(".modal .close");
+   
+</script> -->
 
-    img.onclick = function() {
-        modal.style.display = "block";
-    }
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if(event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-<script src="./js/script.js"></script>
+<script src="./js/modal.js"></script>
 <script src="./js/carusel.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/scrolltotop.js"></script>
 </body>
 </html>
-<!-- // -->

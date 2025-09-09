@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/footert.css">
     <link rel="stylesheet" href="./css/main.css">
      <link rel="stylesheet" href="./css/contacto.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <nav>
-        <img src="./img/logo.png" alt="Logo" id="logo" height="40" width="60">
+         <img src="./img/nwelogo1.png" alt="Logo" id="logo" height="64" width="64">
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="proyectos.html">Proyectos</a></li>
@@ -48,14 +49,103 @@
     </section>
 </main>
 
-<footer>
-    <div class="social-icons">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
-    </div>
-</footer>
 
-<script src="./js/script.js"></script>
+<footer class="footer">
+  <div class="footer-links">
+    <div class="link-group">
+      <a href="index.html">inicio</a>
+    </div>
+    <div class="link-group">
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="link-group">
+      <a href="proyectos.html">Proyectos </a>
+    </div>
+    <div class="link-group">
+      <a href="#descripcion">Descripcion</a>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/nadien-dev-4a0782381" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+    <a href="https://www.tiktok.com/@nadiendev" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-tiktok"></i></i></a>
+    <a href="https://x.com/kingnadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://github.com/SrNadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://youtube.com/@srnadien717" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <div class="copyright">
+    <p class="omar">Creado Por NadienDev</p>
+  </div>
+</footer>
+<!-- Botones flotantes -->
+<a href="https://wa.me/5492615172689" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Icono de WhatsApp" />
+</a>
+<button id="scrollTop" class="scroll-top">↑</button>
+
+
+
+
+
+
+
+<script >
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Funcionalidad del Menú de Navegación (Hamburguesa)
+    const navSlide = () => {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+
+        if (burger && nav && navLinks) {
+            burger.addEventListener('click', () => {
+                // Alternar la clase 'nav-active' en el menú de navegación
+                nav.classList.toggle('nav-active');
+
+                // Animar los enlaces del menú
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+                    }
+                });
+
+                // Alternar la animación de la hamburguesa
+                burger.classList.toggle('toggle');
+            });
+        }
+    };
+    navSlide();
+
+    // 2. Funcionalidad del Botón "Volver Arriba"
+    const setupScrollToTop = () => {
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        if (scrollTopBtn) {
+            // Muestra/oculta el botón al hacer scroll
+            window.addEventListener('scroll', () => {
+                // El botón se muestra después de 200px de scroll
+                if (window.scrollY > 200) {
+                    scrollTopBtn.style.display = 'block';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+
+            // Agrega la funcionalidad de clic al botón
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Desplazamiento suave
+                });
+            });
+        }
+    };
+    setupScrollToTop();
+});
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* altura mínima de la ventana */
-    background-image: url(https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?semt=ais_hybrid&w=740&q=80);
+     background-image: url('../img/fondo.png');
     /* Añade estas propiedades para que la imagen se vea en pantalla completa sin repetirse */
     background-repeat: no-repeat;
     background-size: cover;
@@ -78,4 +78,56 @@ button {
 }
 .dd{
     color: white;
+}
+/* Este es el contenedor principal que centra el texto y la tarjeta */
+.descripcion {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Este es el elemento que contiene la imagen y el texto. 
+   Aquí aplicamos el fondo gris, el padding, y el efecto de hover.
+   Utilizamos Flexbox para centrar la imagen y el texto verticalmente.
+*/
+.tarjeta-imagen {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 20px;
+    
+    /* Centra la imagen y el texto dentro de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+    /* Animación de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto de hover: cuando el cursor está sobre la tarjeta */
+.tarjeta-imagen:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para la imagen dentro de la tarjeta */
+#descripcionImg {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el texto de la imagen */
+.pie-imagen {
+    font-size: 1em;
+    color: #2df748;
+    text-align: center;
+    margin: 0;
+}
+.textpytcolor{
+      color: white;
 }

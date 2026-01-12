@@ -3,150 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NadienDev| Contacto</title>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footert.css">
-    <link rel="stylesheet" href="./css/main.css">
-     <link rel="stylesheet" href="./css/contacto.css">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-                  <link rel="icon" href="./img/nwelogo1.png">
-    </head>
+    <title> NadienDev - Contacto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 5px;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #00ff88;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00ff88;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 50px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header p {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .contact-header h1 {
+            font-size: 48px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #00ff88;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .message-section h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            color: #fff;
+            padding: 12px 0;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-bottom-color: #00ff88;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #666;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .send-btn {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .send-btn:hover {
+            background: #00cc6f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-info h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 136, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff88;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .info-content p {
+            color: #888;
+            margin: 0;
+        }
+
+        .info-content a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        @media (max-width: 968px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
 <body>
 
 <header>
-    <nav>
-         <img src="./img/nwelogo1.png" alt="Logo" id="logo" height="64" width="64">
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="NadienDev Logo">
         </div>
+    </div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html" class="active">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
 </header>
 
-<main>
-    <section class="contact-form">
+<div class="contact-container">
+    <div class="contact-header">
+        <p>Ponerse en contacto</p>
         <h1>Contacto</h1>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="asunto">Asunto</label>
-            <input type="text" id="asunto" name="asunto" required>
-            
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-            
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-</main>
-
-
-<footer class="footer">
-  <div class="footer-links">
-    <div class="link-group">
-      <a href="index.html">inicio</a>
     </div>
-    <div class="link-group">
-      <a href="contacto.html">Contacto</a>
+
+    <div class="contact-content">
+        <div class="message-section">
+            <h2>Message Me</h2>
+
+            <form action="https://formspree.io/f/xnjjqqjn" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Correo" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Asunto" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" placeholder="Mensaje" required></textarea>
+                </div>
+
+                <input type="hidden" name="_redirect" value="contact.html?sent=true">
+
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Open for opportunities. Let's connect and build something awesome together!</p>
+
+            <div class="info-item">
+                <div class="info-content">
+                    <h3>Name</h3>
+                    <p>NadienDev</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-content">
+                    <h3>Location</h3>
+                    <p>Buenos Aires, Argentina</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p><a href="mailto:nadiende@gmail.com">nadiende@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="link-group">
-      <a href="proyectos.html">Proyectos </a>
-    </div>
-    <div class="link-group">
-      <a href="#descripcion">Descripcion</a>
-    </div>
-  </div>
+</div>
 
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/nadien-dev-4a0782381" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
-    <a href="https://www.tiktok.com/@nadiendev" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-tiktok"></i></i></a>
-    <a href="https://x.com/kingnadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://github.com/SrNadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://youtube.com/@srnadien717" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-
-  <div class="copyright">
-    <p class="omar">Creado Por NadienDev</p>
-  </div>
-</footer>
-<!-- Botones flotantes -->
-<a href="https://wa.me/5492615172689" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Icono de WhatsApp" />
-</a>
-<button id="scrollTop" class="scroll-top">↑</button>
-
-
-
-
-
-
-
-<script >
-    document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. Funcionalidad del Menú de Navegación (Hamburguesa)
-    const navSlide = () => {
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('.nav-links');
-        const navLinks = document.querySelectorAll('.nav-links li');
-
-        if (burger && nav && navLinks) {
-            burger.addEventListener('click', () => {
-                // Alternar la clase 'nav-active' en el menú de navegación
-                nav.classList.toggle('nav-active');
-
-                // Animar los enlaces del menú
-                navLinks.forEach((link, index) => {
-                    if (link.style.animation) {
-                        link.style.animation = '';
-                    } else {
-                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-                    }
-                });
-
-                // Alternar la animación de la hamburguesa
-                burger.classList.toggle('toggle');
-            });
-        }
-    };
-    navSlide();
-
-    // 2. Funcionalidad del Botón "Volver Arriba"
-    const setupScrollToTop = () => {
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        if (scrollTopBtn) {
-            // Muestra/oculta el botón al hacer scroll
-            window.addEventListener('scroll', () => {
-                // El botón se muestra después de 200px de scroll
-                if (window.scrollY > 200) {
-                    scrollTopBtn.style.display = 'block';
-                } else {
-                    scrollTopBtn.style.display = 'none';
-                }
-            });
-
-            // Agrega la funcionalidad de clic al botón
-            scrollTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // Desplazamiento suave
-                });
-            });
-        }
-    };
-    setupScrollToTop();
-});
-</script>
 </body>
 </html>

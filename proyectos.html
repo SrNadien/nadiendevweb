@@ -3,110 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NadienDev| Proyectos</title>
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footert.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/projects.css">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-             <link rel="icon" href="./img/nwelogo1.png">
-    </head>
+    <title>NadienDev - Mis Proyectos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ff00ff, transparent);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #00ff88;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .project-description {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .project-tags {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid #00ff88;
+        }
+
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #00ff88;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #00ff88;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff88;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .coming-soon {
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'COMING SOON';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid white;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+        }
+        .text-lime {
+            color: #00ff88;
+        }   
+    </style>
+</head>
 <body>
+    <div id="particles"></div>
 
-<header>
-    <nav>
-         <img src="./img/nwelogo1.png" alt="Logo" id="logo" height="64" width="64">
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </nav>
-</header>
+    <header>
+       <div class="logo" style="width: 60px; height: 60px; border: 2px solid #00ff88; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); overflow: hidden;">
+    <img src="images/logo.png" alt="NadienDev Logo" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+<div style="text-align: center; margin-top: 8px;">
+    <span style="font-size: 10px; font-weight: bold; color: white; letter-spacing: 0.5px;"></span>
+</div>
+        <nav>
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html" class="active">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
-<main>
-    <section class="projects">
+    <div class="container">
         <h1>Mis Proyectos</h1>
+
         <div class="projects-grid">
-            <div class="project-card" data-project-id="1">
-                <img src="https://media.tenor.com/sELLevx25fUAAAAe/simpsons-smoking.png" alt="Proyecto 1">
-                <h3>Paty Y Selma </h3>
-                <p>Bot De Discord hecho en Nodejs v14</p>
+            <div class="project-card">
+                <div class="project-image" style="padding: 0; overflow: hidden;">
+    <img src="https://media.tenor.com/sELLevx25fUAAAAe/simpsons-smoking.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Paty Y Selma</h2>
+                    <p class="project-description">Bot De Discord hecho en Nodejs v14.</p>
+                    <div class="project-tags">
+                        <span class="tag">NodeJs</span>
+                        <span class="tag">DiscordJs V14</span>
+                        <span class="tag">MultiPropose Bot</span>
+                    </div>
+                </div>
             </div>
-            <div class="project-card" data-project-id="2">
-                <img src="https://media.forgecdn.net/avatars/thumbnails/1138/934/256/256/638701627221888809.png" alt="Proyecto 2">
-                <h3>Ultimate Utilities </h3>
-                <p>Mod Minecraft Addon KUBEJS</p>
+
+            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/ultimate-utilities', '_blank')">
+                <div class="project-image" style="padding: 0; overflow: hidden;">
+    <img src="https://media.forgecdn.net/avatars/thumbnails/1138/934/256/256/638701627221888809.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Ultimate Utilities</h2>
+                    <p class="project-description">Mod Minecraft Addon KUBEJS.</p>
+                    <div class="project-tags">
+                        <span class="tag">java</span>
+                        <span class="tag">Minecraft Mod</span>
+                    </div>
+                </div>
             </div>
-              <div class="project-card" data-project-id="1">
-                <img src="https://media.forgecdn.net/avatars/thumbnails/1247/598/256/256/638814636995904161.png" alt="Proyecto 1">
-                <h3>No Netherite Template</h3>
-                <p>Mod De Minecraft</p>
-                <p>Desactiva a template de netherite y la de algunos otros mods de la mesa de herreria</p>
+
+            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/no-template-netherite', '_blank')">
+                <div class="project-image" style="padding: 0; overflow: hidden;">
+    <img src="https://media.forgecdn.net/avatars/thumbnails/1247/598/256/256/638814636995904161.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">No Template Netherite</h2>
+                    <p class="project-description">Desactiva a template de netherite y la de algunos otros mods de la mesa de herreria.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Minecraft Mod</span>
+                    </div>
+                </div>
             </div>
-            <div class="project-card" data-project-id="1">
-                <img src="./img/mt.png" alt="Proyecto 1">
-                <h3>Mates Travel</h3>
-                <p>Pantilla Web De Turismo</p>
-                <p>Diseñada por <a href="https://github.com/SrNadien">SrNadien</a> Y <a href="https://github.com/OMARMENDOZA1972">Omar Abud </a></p>
-                <p><a href="https://kingnadiendev.github.io/MatesTravel2.0">Mates Travel Web</a></p>
+
+            <div class="project-card" onclick="window.open('https://kingnadiendev.github.io/MatesTravel2.0', '_blank')">
+                <div class="project-image" style="padding: 0; overflow: hidden;">
+    <img src="https://dev.nadiendev.xyz/img/mt.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Mates Travel</h2>
+                    <p class="project-description">Diseñada por <a href="https://github.com/SrNadien" style="color: #00ff88; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='#7fff00'" onmouseout="this.style.color='#00ff88'">SrNadien</a> Y <a href="https://github.com/OMARMENDOZA1972" style="color: #00ff88; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='#7fff00'" onmouseout="this.style.color='#00ff88'">Omar Abud</a></p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                </div>
             </div>
-              <div class="project-card" data-project-id="1">
-                <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="Proyecto 1">
-                <h3>PROXIMAMENTE</h3>
-                <p>Hosting WEB AND GAMING</p>
-                <p>Diseñada por <a href="https://github.com/SrNadien">SrNadien</a></p>
-                <p><a href="https://github.com/SrNadien">PROXIMAMENTE</a></p>
+<div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/craft-overhaul', '_blank')" style="cursor: pointer;">
+    <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://media.forgecdn.net/avatars/1597/620/639032499905436755.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Craft OverHaul</h2>
+        <p class="project-description">With this mod, you can restore and re-add missing or removed Minecraft crafting recipes.</p>
+        <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Minecraft Mod</span>
+        </div>
+    </div>
+</div>
+
+              <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/mangos-multiblock-library-revived', '_blank')" style="cursor: pointer;">
+    <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://media.forgecdn.net/avatars/1565/92/639015316885761961.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Mangos Multiblock Library Revived</h2>
+        <p class="project-description">Provides some useful utilities for making Multiblock Structures Ported 1.21.1 NeoForge.</p>
+        <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Minecraft Mod</span>
+        </div>
+    </div>
+</div>
+
+
+           <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/construction-wands-revived', '_blank')" style="cursor: pointer;">
+    <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://media.forgecdn.net/avatars/1542/518/639001224077943374.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Construction Wands Revived</h2>
+        <p class="project-description">Construction Wands make building easier! (A new take on the Builder's Wand) ported 1.21.1 NeoForge.</p>
+        <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Minecraft Mod</span>
+        </div>
+    </div>
+</div>
+
+
+     
+           <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/compact-machine-rooms-enabler', '_blank')" style="cursor: pointer;">
+    <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://media.forgecdn.net/avatars/1573/720/639019742596158576.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Compact Machine Rooms Enabler</h2>
+        <p class="project-description">Automatically registers the Basic Room Templates datapack and all Compact Machines jei subtypes, removing the need for KubeJS or custom scripts.</p>
+        <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Minecraft Mod</span>
+        </div>
+    </div>
+</div>
+
+           <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/void-miners-remastered', '_blank')" style="cursor: pointer;">
+    <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://media.forgecdn.net/avatars/1590/106/639028797049060750.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Void Miners Remastered</h2>
+        <p class="project-description">A mod that allows mining resources from the void.</p>
+        <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Minecraft Mod</span>
+        </div>
+    </div>
+</div>
+
+               <div class="project-card">
+                <div class="project-image" style="padding: 0; overflow: hidden;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP57yyYiRCeFIOrgymerSFUzjE-0nF8lLY0A&s" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Los Horneros</h2>
+                    <p class="project-description">Web Par Colegio Los Horneros</p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+              <div class="project-card coming-soon">
+                 <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Muy Pronto</h2>
+                    <p class="project-description">.....</p>
+                    <div class="project-tags">
+                        <span class="tag">????</span>
+                        <span class="tag">????</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card coming-soon">
+                 <div class="project-image" style="padding: 0; overflow: hidden;">
+        <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                <div class="project-content">
+                    <h2 class="project-title">Muy Pronto</h2>
+                    <p class="project-description">.....</p>
+                    <div class="project-tags">
+                        <span class="tag">????</span>
+                        <span class="tag">????</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-</main>
-
-
-
-<footer class="footer">
-  <div class="footer-links">
-    <div class="link-group">
-      <a href="index.html">inicio</a>
     </div>
-    <div class="link-group">
-      <a href="contacto.html">Contacto</a>
-    </div>
-    <div class="link-group">
-     <a href="proyectos.html">Proyectos </a>
-    </div>
-    <div class="link-group">
-      <a href="#descripcion">Descripcion</a>
-    </div>
-  </div>
 
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/nadien-dev-4a0782381" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
-    <a href="https://www.tiktok.com/@nadiendev" class="btn btn-outline-primary btn-square" target="_blank"><i class="fa-brands fa-tiktok"></i></i></a>
-    <a href="https://x.com/kingnadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://github.com/SrNadien" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://youtube.com/@srnadien717" class="btn btn-outline-primary btn-square" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#inicio">inicio</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#descripcion">Descripción</a>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon">in</a>
+            <a href="#" class="social-icon">TT</a>
+            <a href="#" class="social-icon">tw</a>
+            <a href="#" class="social-icon">GH</a>
+            <a href="#" class="social-icon">YT</a>
+        </div>
+        <p style="margin-top: 20px; color: #00ff88;">Creado Por NadienDev</p>
+    </footer>
 
-  <div class="copyright">
-    <p class="omar">Creado Por NadienDev</p>
-  </div>
-</footer>
+    <script>
+        // Crear partículas animadas
+        const particlesContainer = document.getElementById('particles');
+        const colors = ['#ff00ff', '#00ff88', '#00ffff', '#ff0066'];
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            particle.style.background = `linear-gradient(to bottom, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            particlesContainer.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+        
+        setInterval(createParticle, 200);
 
-<!-- Botones flotantes -->
-<a href="https://wa.me/5492615172689" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Icono de WhatsApp" />
-</a>
-<button id="scrollTop" class="scroll-top">↑</button>
-
-
-<script src="./js/script.js"></script>
-<script src="./js/scrolltotop.js"></script>
-
+        // Animación suave al hacer hover en las tarjetas
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#00ff88';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+    </script>
 </body>
 </html>

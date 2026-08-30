@@ -1,0 +1,204 @@
+/* ==========================================================================
+   NadienDev — página de Orenix
+   ========================================================================== */
+
+/* ---------- Banner ---------- */
+.orenix-banner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1366 / 520;
+    min-height: 260px;
+    max-height: 480px;
+    overflow: hidden;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+}
+
+.orenix-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Degradado inferior para que el texto no compita con la imagen */
+.orenix-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(8,9,10,.15) 0%, rgba(8,9,10,.55) 55%, var(--bg) 100%);
+    pointer-events: none;
+}
+
+.orenix-banner__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding-bottom: 34px;
+}
+
+.orenix-banner__logo {
+    width: 86px;
+    height: 86px;
+    border-radius: 20px;
+    border: 1px solid var(--border-strong);
+    background: rgba(8, 9, 10, .7);
+    backdrop-filter: blur(6px);
+    object-fit: contain;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.orenix-banner h1 {
+    font-size: clamp(34px, 6vw, 56px);
+    letter-spacing: -.035em;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, .8);
+}
+
+.orenix-banner p {
+    font-family: var(--mono);
+    font-size: clamp(14px, 2vw, 17px);
+    color: var(--accent);
+    margin-top: 8px;
+}
+
+/* ---------- Intro ---------- */
+.orenix-intro {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.orenix-intro p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.orenix-intro p + p { margin-top: 16px; }
+
+.orenix-lead {
+    font-size: 19px !important;
+    color: var(--text) !important;
+    line-height: 1.65 !important;
+}
+
+/* ---------- Servicios ---------- */
+.orenix-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.orenix-service {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    transition: border-color .25s, transform .25s, background .25s;
+}
+
+.orenix-service:hover {
+    border-color: var(--accent-line);
+    background: var(--surface-hover);
+    transform: translateY(-3px);
+}
+
+.orenix-service__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.orenix-service h3 { font-size: 17px; margin-bottom: 9px; }
+
+.orenix-service p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+
+/* ---------- Equipo ---------- */
+.orenix-team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 720px;
+}
+
+.orenix-member {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color .25s, transform .25s, background .25s;
+}
+
+a.orenix-member:hover {
+    border-color: var(--accent-line);
+    background: var(--surface-hover);
+    transform: translateY(-3px);
+}
+
+.orenix-member__avatar {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: var(--bg-elev);
+    border: 1px solid var(--accent-line);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+}
+
+.orenix-member__avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.orenix-member__name {
+    font-size: 16px;
+    font-weight: 650;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.orenix-member__name i {
+    font-size: 10px;
+    color: var(--text-faint);
+    transition: color .2s;
+}
+
+a.orenix-member:hover .orenix-member__name i { color: var(--accent); }
+
+.orenix-member__role {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent);
+    margin-top: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .orenix-intro { grid-template-columns: 1fr; gap: 22px; }
+}
+
+@media (max-width: 620px) {
+    .orenix-banner { min-height: 220px; }
+    .orenix-banner__content { padding-bottom: 24px; }
+    .orenix-banner__logo { width: 64px; height: 64px; border-radius: 16px; margin-bottom: 12px; }
+}

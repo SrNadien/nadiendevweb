@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Panel de edición — NadienDev</title>
+
+    <link rel="icon" href="images/ndev2.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="index.html">
+            <span class="brand__mark"><img src="images/ndev2.jpg" alt=""></span>
+            <span class="brand__name">Nadien<span>Dev</span></span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="orenix.html">Orenix</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="admin.html" aria-current="page">Panel</a>
+        </nav>
+
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<main class="wrap">
+
+    <div class="admin-bar" style="padding-top:32px">
+        <div>
+            <p class="eyebrow">Administración</p>
+            <h1 style="font-size:clamp(24px,4vw,34px)">Panel de edición</h1>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <span class="save-state" id="save-state">Sin cambios</span>
+            <button class="btn btn--ghost" type="button" id="btn-reload">
+                <i class="fa-solid fa-rotate"></i> Recargar
+            </button>
+            <button class="btn btn--primary" type="button" id="btn-save">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Publicar
+            </button>
+        </div>
+    </div>
+
+    <div class="admin">
+
+        <!-- ===== Menú lateral ===== -->
+        <nav class="admin-side" role="tablist" aria-label="Secciones del panel">
+            <button class="admin-tab" role="tab" data-panel="proyectos" aria-selected="true">
+                <i class="fa-solid fa-folder-open"></i> Proyectos
+            </button>
+            <button class="admin-tab" role="tab" data-panel="perfil" aria-selected="false">
+                <i class="fa-regular fa-user"></i> Perfil
+            </button>
+            <button class="admin-tab" role="tab" data-panel="stats" aria-selected="false">
+                <i class="fa-solid fa-chart-simple"></i> Estadísticas
+            </button>
+            <button class="admin-tab" role="tab" data-panel="skills" aria-selected="false">
+                <i class="fa-solid fa-layer-group"></i> Qué hago
+            </button>
+            <button class="admin-tab" role="tab" data-panel="orenix" aria-selected="false">
+                <i class="fa-solid fa-briefcase"></i> Orenix
+            </button>
+            <button class="admin-tab" role="tab" data-panel="redes" aria-selected="false">
+                <i class="fa-solid fa-share-nodes"></i> Redes
+            </button>
+            <hr>
+            <button class="admin-tab" role="tab" data-panel="guardar" aria-selected="false">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Guardar / GitHub
+            </button>
+        </nav>
+
+        <div class="admin-main">
+
+            <!-- ===== Proyectos ===== -->
+            <section class="admin-panel" id="panel-proyectos" role="tabpanel">
+                <h2>Proyectos</h2>
+                <p class="admin-panel__hint">Agregá, editá, ocultá o reordená proyectos. Los cambios se ven en el sitio al publicar.</p>
+
+                <div class="admin-bar">
+                    <div class="search" style="flex:1 1 240px">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="admin-search" placeholder="Buscar proyecto…" aria-label="Buscar proyecto" autocomplete="off">
+                    </div>
+                    <button class="btn btn--primary" type="button" id="btn-new">
+                        <i class="fa-solid fa-plus"></i> Nuevo proyecto
+                    </button>
+                </div>
+
+                <div class="plist" id="plist"></div>
+            </section>
+
+            <!-- ===== Perfil ===== -->
+            <section class="admin-panel" id="panel-perfil" role="tabpanel" hidden>
+                <h2>Perfil</h2>
+                <p class="admin-panel__hint">Los textos del hero, el "sobre mí" y los datos de contacto.</p>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="p-name">Nombre / marca</label>
+                        <input type="text" id="p-name" data-bind="profile.name">
+                    </div>
+                    <div class="f">
+                        <label for="p-role">Rol</label>
+                        <input type="text" id="p-role" data-bind="profile.role">
+                    </div>
+                </div>
+
+                <div class="f">
+                    <label for="p-tagline">Tagline (hero)</label>
+                    <textarea id="p-tagline" data-bind="profile.tagline"></textarea>
+                </div>
+
+                <div class="f">
+                    <label for="p-about">Sobre mí (footer)</label>
+                    <textarea id="p-about" data-bind="profile.about"></textarea>
+                </div>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="p-location">Ubicación</label>
+                        <input type="text" id="p-location" data-bind="profile.location">
+                    </div>
+                    <div class="f">
+                        <label for="p-email">Correo</label>
+                        <input type="email" id="p-email" data-bind="profile.email">
+                    </div>
+                </div>
+
+                <div class="f">
+                    <label for="p-projects-intro">Intro de la página de proyectos</label>
+                    <textarea id="p-projects-intro" data-bind="profile.projectsIntro"></textarea>
+                </div>
+
+                <div class="f">
+                    <label for="p-formspree">Endpoint de Formspree</label>
+                    <input type="url" id="p-formspree" data-bind="profile.formspree">
+                    <small>URL a la que se envía el formulario de contacto.</small>
+                </div>
+
+                <label class="check">
+                    <input type="checkbox" id="p-available" data-bind="profile.available">
+                    Mostrar cartel de disponibilidad
+                </label>
+
+                <div class="f">
+                    <label for="p-available-text">Texto de disponibilidad</label>
+                    <input type="text" id="p-available-text" data-bind="profile.availableText">
+                </div>
+            </section>
+
+            <!-- ===== Estadísticas ===== -->
+            <section class="admin-panel" id="panel-stats" role="tabpanel" hidden>
+                <h2>Estadísticas</h2>
+                <p class="admin-panel__hint">Los números que aparecen debajo del hero en la portada.</p>
+                <div id="stats-list"></div>
+                <button class="btn btn--ghost" type="button" data-add="stats">
+                    <i class="fa-solid fa-plus"></i> Agregar estadística
+                </button>
+            </section>
+
+            <!-- ===== Skills ===== -->
+            <section class="admin-panel" id="panel-skills" role="tabpanel" hidden>
+                <h2>Qué hago</h2>
+                <p class="admin-panel__hint">Las tarjetas de servicios/áreas de la portada. El icono usa clases de Font Awesome 6.</p>
+                <div id="skills-list"></div>
+                <button class="btn btn--ghost" type="button" data-add="skills">
+                    <i class="fa-solid fa-plus"></i> Agregar tarjeta
+                </button>
+            </section>
+
+            <!-- ===== Orenix ===== -->
+            <section class="admin-panel" id="panel-orenix" role="tabpanel" hidden>
+                <h2>Orenix</h2>
+                <p class="admin-panel__hint">Todo el contenido de <code>orenix.html</code>: banner, textos y módulos.</p>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="o-name">Nombre</label>
+                        <input type="text" id="o-name" data-bind="orenix.name">
+                    </div>
+                    <div class="f">
+                        <label for="o-tagline">Tagline (bajo el título)</label>
+                        <input type="text" id="o-tagline" data-bind="orenix.tagline">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="o-banner">Imagen del banner</label>
+                        <input type="text" id="o-banner" data-bind="orenix.banner" placeholder="images/orenixbanner.jpg">
+                    </div>
+                    <div class="f">
+                        <label for="o-logo">Logo sobre el banner</label>
+                        <input type="text" id="o-logo" data-bind="orenix.logo" placeholder="images/orenixdev.png">
+                        <small>Si el archivo no existe, el logo se oculta solo.</small>
+                    </div>
+                </div>
+
+                <div class="f">
+                    <label for="o-intro">Párrafo destacado</label>
+                    <textarea id="o-intro" data-bind="orenix.intro"></textarea>
+                </div>
+
+                <div class="f">
+                    <label for="o-about">Párrafo secundario</label>
+                    <textarea id="o-about" data-bind="orenix.about"></textarea>
+                </div>
+
+                <div class="f">
+                    <label for="o-stack">Tecnologías (separadas por coma)</label>
+                    <input type="text" id="o-stack" data-bind="orenix.stack" data-list placeholder="Bases de datos, JavaScript, HTML, CSS, PHP, Java">
+                </div>
+
+                <div class="f">
+                    <label for="o-cta">Texto del botón final</label>
+                    <input type="text" id="o-cta" data-bind="orenix.ctaText" placeholder="Consultar por un sistema">
+                </div>
+
+                <h3 style="font-size:16px;margin:28px 0 6px">Equipo</h3>
+                <p class="admin-panel__hint">Los integrantes de Orenix. Si la foto queda vacía se muestran las iniciales.</p>
+                <div id="orenix-team-list"></div>
+                <button class="btn btn--ghost" type="button" data-add="orenixTeam">
+                    <i class="fa-solid fa-plus"></i> Agregar integrante
+                </button>
+
+                <h3 style="font-size:16px;margin:28px 0 6px">Módulos</h3>
+                <p class="admin-panel__hint">Las tarjetas de "Qué incluye".</p>
+                <div id="orenix-services-list"></div>
+                <button class="btn btn--ghost" type="button" data-add="orenixServices">
+                    <i class="fa-solid fa-plus"></i> Agregar módulo
+                </button>
+            </section>
+
+            <!-- ===== Redes ===== -->
+            <section class="admin-panel" id="panel-redes" role="tabpanel" hidden>
+                <h2>Redes</h2>
+                <p class="admin-panel__hint">Se muestran en el hero, el footer y la página de contacto.</p>
+                <div id="socials-list"></div>
+                <button class="btn btn--ghost" type="button" data-add="socials">
+                    <i class="fa-solid fa-plus"></i> Agregar red
+                </button>
+            </section>
+
+            <!-- ===== Guardar ===== -->
+            <section class="admin-panel" id="panel-guardar" role="tabpanel" hidden>
+                <h2>Guardar y publicar</h2>
+                <p class="admin-panel__hint">GitHub Pages no ejecuta PHP, así que el contenido vive en <code>data/content.json</code>. Hay dos formas de actualizarlo.</p>
+
+                <div class="callout">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <strong>Opción 1 — Descargar y subir.</strong> Descargás el <code>content.json</code>, lo reemplazás en el repo y hacés commit. No necesitás configurar nada.
+                    </div>
+                </div>
+
+                <button class="btn btn--ghost" type="button" id="btn-download">
+                    <i class="fa-solid fa-download"></i> Descargar content.json
+                </button>
+
+                <hr style="border:0;border-top:1px solid var(--border);margin:30px 0">
+
+                <div class="callout">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <strong>Opción 2 — Publicar directo en GitHub.</strong> Con un token propio, el panel hace el commit por vos y GitHub Pages se actualiza solo en ~1 minuto.
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="gh-owner">Usuario / organización</label>
+                        <input type="text" id="gh-owner" placeholder="SrNadien">
+                    </div>
+                    <div class="f">
+                        <label for="gh-repo">Repositorio</label>
+                        <input type="text" id="gh-repo" placeholder="nadiendevwebb">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="f">
+                        <label for="gh-branch">Rama</label>
+                        <input type="text" id="gh-branch" placeholder="main">
+                    </div>
+                    <div class="f">
+                        <label for="gh-path">Ruta del archivo</label>
+                        <input type="text" id="gh-path" placeholder="data/content.json">
+                    </div>
+                </div>
+
+                <div class="f">
+                    <label for="gh-token">Token de acceso personal</label>
+                    <input type="password" id="gh-token" placeholder="github_pat_…" autocomplete="off">
+                    <small>
+                        Creá un <em>fine-grained token</em> en GitHub → Settings → Developer settings, con acceso
+                        <strong>solo a este repositorio</strong> y permiso <strong>Contents: Read and write</strong>.
+                    </small>
+                </div>
+
+                <label class="check">
+                    <input type="checkbox" id="gh-remember">
+                    Recordar el token en este navegador
+                </label>
+
+                <div class="callout callout--warn">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        El token queda guardado en el <code>localStorage</code> de <em>tu</em> navegador, nunca se sube al repo ni se envía a otro servidor: el panel habla directamente con la API de GitHub.
+                        Aun así, no marques esta opción en una computadora compartida, y si el token se filtra, revocalo desde GitHub.
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+                    <button class="btn btn--ghost" type="button" id="btn-test">
+                        <i class="fa-solid fa-plug-circle-check"></i> Probar conexión
+                    </button>
+                    <button class="btn btn--primary" type="button" id="btn-commit">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Publicar en GitHub
+                    </button>
+                </div>
+
+                <hr style="border:0;border-top:1px solid var(--border);margin:30px 0">
+
+                <h3 style="font-size:16px;margin-bottom:6px">Borrador local</h3>
+                <p class="admin-panel__hint">Tus cambios sin publicar se guardan solos en este navegador.</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <button class="btn btn--ghost" type="button" id="btn-discard">
+                        <i class="fa-solid fa-trash-can"></i> Descartar borrador
+                    </button>
+                    <label class="btn btn--ghost" for="import-file" style="cursor:pointer">
+                        <i class="fa-solid fa-file-import"></i> Importar content.json
+                    </label>
+                    <input type="file" id="import-file" accept="application/json,.json" hidden>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<!-- ===== Modal de proyecto ===== -->
+<div class="modal" id="modal" hidden>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal__head">
+            <h3 id="modal-title">Editar proyecto</h3>
+            <button class="icon-btn" type="button" id="modal-close" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="f">
+            <label for="m-name">Nombre</label>
+            <input type="text" id="m-name" placeholder="Nombre del proyecto">
+        </div>
+
+        <div class="f">
+            <label for="m-desc">Descripción</label>
+            <textarea id="m-desc" placeholder="Qué hace el proyecto, en una o dos frases."></textarea>
+        </div>
+
+        <div class="grid-2">
+            <div class="f">
+                <label for="m-cat">Categoría</label>
+                <select id="m-cat">
+                    <option value="mod">Minecraft Mod</option>
+                    <option value="modpack">Modpack</option>
+                    <option value="datapack">Datapack</option>
+                    <option value="server">Servidor Minecraft</option>
+                    <option value="web">Sitio Web</option>
+                    <option value="app">Sistema</option>
+                    <option value="bot">Bot</option>
+                </select>
+            </div>
+            <div class="f">
+                <label for="m-downloads">Descargas</label>
+                <input type="number" id="m-downloads" min="0" step="1" placeholder="0">
+                <small>Dejá 0 para no mostrar la insignia.</small>
+            </div>
+        </div>
+
+        <div class="f">
+            <label for="m-url">Enlace (opcional)</label>
+            <input type="url" id="m-url" placeholder="https://www.curseforge.com/minecraft/mc-mods/…">
+        </div>
+
+        <div class="grid-2">
+            <div class="f">
+                <label for="m-image">Imagen (URL o ruta local)</label>
+                <input type="text" id="m-image" placeholder="images/mi-proyecto.png">
+                <small>Si queda vacía se muestran las iniciales del proyecto.</small>
+            </div>
+            <div class="f">
+                <label for="m-fit">Ajuste de imagen</label>
+                <select id="m-fit">
+                    <option value="contain">Contenida (iconos cuadrados)</option>
+                    <option value="cover">Recortada (capturas anchas)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="f">
+            <label for="m-tags">Tecnologías (separadas por coma)</label>
+            <input type="text" id="m-tags" placeholder="Java, NeoForge, 1.21.1">
+        </div>
+
+        <div class="f">
+            <label for="m-role">Insignia de rol (opcional)</label>
+            <input type="text" id="m-role" placeholder="Colaborador, Mantenedor, Con Omar Abud…">
+        </div>
+
+        <label class="check">
+            <input type="checkbox" id="m-featured"> Destacar en la portada
+        </label>
+        <label class="check">
+            <input type="checkbox" id="m-visible"> Visible en el sitio
+        </label>
+
+        <div class="modal__foot">
+            <button class="btn btn--ghost" type="button" id="modal-cancel">Cancelar</button>
+            <button class="btn btn--primary" type="button" id="modal-save">
+                <i class="fa-solid fa-check"></i> Guardar cambios
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/site.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

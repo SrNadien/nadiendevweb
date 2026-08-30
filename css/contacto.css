@@ -1,0 +1,154 @@
+/* ==========================================================================
+   NadienDev — página de contacto
+   ========================================================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.25fr .85fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 34px;
+}
+
+.panel h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.panel__hint {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    margin-bottom: 26px;
+}
+
+/* ---------- Formulario ---------- */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.field { margin-bottom: 16px; }
+
+.field label {
+    display: block;
+    font-size: 12.5px;
+    font-family: var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    padding: 13px 15px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    transition: border-color .2s, background .2s;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    outline: none;
+    border-color: var(--accent-line);
+    background: var(--bg);
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-faint); }
+
+.field textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-note {
+    margin-top: 14px;
+    font-size: 13.5px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent-line);
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+/* ---------- Datos de contacto ---------- */
+.info-list { display: grid; gap: 4px; margin-bottom: 26px; }
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-item:last-child { border-bottom: 0; }
+
+.info-item__icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.info-item__label {
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+.info-item__value { font-size: 15px; font-weight: 500; }
+.info-item__value a { transition: color .2s; }
+.info-item__value a:hover { color: var(--accent); }
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent-line);
+    background: var(--accent-soft);
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.availability span:first-child {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+    .panel { padding: 26px 22px; }
+    .form-row { grid-template-columns: 1fr; }
+}

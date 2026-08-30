@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orenix — Software de gestión a medida</title>
+    <meta name="description" content="Orenix: sistemas de gestión para negocios desarrollados a medida. Stock, ventas, clientes y reportes en un panel único.">
+    <link rel="canonical" href="https://dev.nadiendev.fun/orenix.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Orenix — Software de gestión a medida">
+    <meta property="og:description" content="Sistemas de gestión para negocios: stock, ventas, clientes y reportes.">
+    <meta property="og:url" content="https://dev.nadiendev.fun/orenix.html">
+    <meta property="og:image" content="https://dev.nadiendev.fun/images/orenixbanner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#08090a">
+
+    <link rel="icon" href="images/ndev2.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/orenix.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="index.html">
+            <span class="brand__mark"><img src="images/ndev2.jpg" alt=""></span>
+            <span class="brand__name">Nadien<span>Dev</span></span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="orenix.html" aria-current="page">Orenix</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="admin.html" data-admin-link hidden>Panel</a>
+        </nav>
+
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===== Banner ===== -->
+    <section class="orenix-banner">
+        <img src="images/orenixbanner.jpg" alt="" id="banner-img">
+        <div class="orenix-banner__content">
+            <div class="wrap">
+                <img class="orenix-banner__logo" src="images/orenixdev.png" alt="" id="banner-logo" hidden>
+                <h1 id="orenix-name">Orenix</h1>
+                <p id="orenix-tagline">Software a medida para negocios</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Presentación ===== -->
+    <section class="wrap section">
+        <div class="section-head reveal">
+            <p class="eyebrow">Qué es Orenix</p>
+            <h2>Sistemas hechos para tu negocio</h2>
+        </div>
+
+        <div class="orenix-intro reveal">
+            <p class="orenix-lead" id="orenix-intro"></p>
+            <div>
+                <p id="orenix-about"></p>
+                <div class="tags" id="orenix-stack" style="margin-top:18px"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Equipo ===== -->
+    <section class="wrap section" id="equipo" hidden>
+        <div class="section-head reveal">
+            <p class="eyebrow">Quiénes somos</p>
+            <h2>El equipo</h2>
+            <p>Dos fundadores trabajando juntos en cada proyecto.</p>
+        </div>
+
+        <div class="orenix-team" id="orenix-team"></div>
+    </section>
+
+    <!-- ===== Servicios ===== -->
+    <section class="wrap section" id="servicios">
+        <div class="section-head reveal">
+            <p class="eyebrow">Qué hacemos</p>
+            <h2>Servicios</h2>
+            <p>Cada proyecto se arma con lo que el cliente necesita. Esto es lo que solemos construir.</p>
+        </div>
+
+        <div class="orenix-services" id="orenix-services"></div>
+    </section>
+
+    <!-- ===== Productos ===== -->
+    <section class="wrap section" id="productos" hidden>
+        <div class="section-head reveal">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Proyectos de Orenix</h2>
+            <p>Sistemas y sitios web que desarrollamos juntos.</p>
+        </div>
+
+        <div class="card-grid" id="orenix-products"></div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="wrap section--tight">
+        <div class="cta reveal">
+            <h2>¿Querés un sistema para tu negocio?</h2>
+            <p>Contame cómo trabajás hoy y armamos juntos el sistema que te haga falta.</p>
+            <a class="btn btn--primary" href="contacto.html" id="orenix-cta">
+                <i class="fa-regular fa-paper-plane"></i> Consultar por un sistema
+            </a>
+            <a class="btn btn--ghost" href="proyectos.html">Ver todos los proyectos</a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-inner">
+        <p class="footer-copy">&copy; <span data-year></span> NadienDev</p>
+        <nav class="footer-nav" aria-label="Enlaces del pie">
+            <a href="index.html">Inicio</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="orenix.html">Orenix</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="https://www.curseforge.com/members/nadiendev/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+            <a href="admin.html" data-admin-link hidden>Panel</a>
+        </nav>
+        <div class="socials" id="footer-socials"></div>
+    </div>
+</footer>
+
+<script src="js/site.js"></script>
+<script src="js/orenix.js"></script>
+</body>
+</html>

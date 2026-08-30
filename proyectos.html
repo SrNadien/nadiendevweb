@@ -3,650 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NadienDev - Mis Proyectos</title>
-     <!-- FontAwesome -->
+
+    <title>Proyectos — NadienDev</title>
+    <meta name="description" content="Catálogo completo de proyectos de NadienDev: mods, modpacks y datapacks de Minecraft, sitios web, bots de Discord y sistemas de gestión.">
+    <link rel="canonical" href="https://dev.nadiendev.fun/proyectos.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Proyectos — NadienDev">
+    <meta property="og:description" content="Mods, modpacks, servidores, sitios web y sistemas. 41 proyectos publicados.">
+    <meta property="og:url" content="https://dev.nadiendev.fun/proyectos.html">
+    <meta property="og:image" content="https://dev.nadiendev.fun/images/ndev2.jpg">
+    <meta name="theme-color" content="#08090a">
+
+    <link rel="icon" href="images/ndev2.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        #particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(to bottom, #ff00ff, transparent);
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        header {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            border: 2px solid #00ff88;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #00ff88;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: #00ff88;
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 48px;
-            margin-bottom: 60px;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .project-card {
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #00ff88;
-        }
-
-        .project-description {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .project-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background: rgba(0, 255, 136, 0.2);
-            color: #00ff88;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid #00ff88;
-        }
-
-        footer {
-            position: relative;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #00ff88;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border: 2px solid #00ff88;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00ff88;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-icon:hover {
-            background: #00ff88;
-            color: #000;
-        }
-
-        .coming-soon {
-            position: relative;
-        }
-
-        .coming-soon::after {
-            content: 'COMING SOON';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 0, 0, 0.9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            border: 2px solid white;
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            header {
-                padding: 15px 20px;
-            }
-
-            nav {
-                gap: 15px;
-            }
-        }
-
-        .text-lime {
-            color: #00ff88;
-        }
-    </style>
+    <link rel="stylesheet" href="css/site.css">
 </head>
+
 <body>
-    <div id="particles"></div>
 
-    <header>
-        <div class="logo" style="width: 60px; height: 60px; border: 2px solid #00ff88; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); overflow: hidden;">
-            <img src="images/logo.png" alt="NadienDev Logo" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div style="text-align: center; margin-top: 8px;">
-            <span style="font-size: 10px; font-weight: bold; color: white; letter-spacing: 0.5px;"></span>
-        </div>
-        <nav>
+<header class="site-header">
+    <div class="wrap">
+        <a class="brand" href="index.html">
+            <span class="brand__mark"><img src="images/ndev2.jpg" alt=""></span>
+            <span class="brand__name">Nadien<span>Dev</span></span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
-            <a href="proyectos.html" class="active">Proyectos</a>
+            <a href="proyectos.html" aria-current="page">Proyectos</a>
+            <a href="orenix.html">Orenix</a>
             <a href="contacto.html">Contacto</a>
+            <a href="admin.html" data-admin-link hidden>Panel</a>
         </nav>
-    </header>
 
-    <div class="container">
-        <h1>Mis Proyectos</h1>
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>
 
-        <div class="projects-grid">
+<main class="wrap section">
 
-            <!-- Paty Y Selma -->
-            <div class="project-card">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.tenor.com/sELLevx25fUAAAAe/simpsons-smoking.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Paty Y Selma</h2>
-                    <p class="project-description">Bot De Discord hecho en Nodejs v14.</p>
-                    <div class="project-tags">
-                        <span class="tag">NodeJs</span>
-                        <span class="tag">DiscordJs V14</span>
-                        <span class="tag">MultiPropose Bot</span>
-                    </div>
-                </div>
-            </div>
+    <div class="section-head reveal">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Todos los proyectos</h2>
+        <p id="intro">Mods, modpacks y datapacks de Minecraft, sitios web, bots y sistemas de gestión.</p>
+    </div>
 
-            <!-- Ultimate Utilities -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/ultimate-utilities', '_blank')">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1138/934/256/256/638701627221888809.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Ultimate Utilities</h2>
-                    <p class="project-description">Mod Minecraft Addon KUBEJS.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- No Template Netherite -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/no-template-netherite', '_blank')">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1247/598/256/256/638814636995904161.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">No Template Netherite</h2>
-                    <p class="project-description">Desactiva a template de netherite y la de algunos otros mods de la mesa de herreria.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mates Travel -->
-            <div class="project-card" onclick="window.open('https://kingnadiendev.github.io/MatesTravel2.0', '_blank')">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://dev.nadiendev.xyz/img/mt.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Mates Travel</h2>
-                    <p class="project-description">Diseñada por <a href="https://github.com/SrNadien" style="color: #00ff88; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='#7fff00'" onmouseout="this.style.color='#00ff88'">SrNadien</a> Y <a href="https://github.com/OMARMENDOZA1972" style="color: #00ff88; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='#7fff00'" onmouseout="this.style.color='#00ff88'">Omar Abud</a></p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">HTML</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Craft OverHaul -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/craft-overhaul', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1597/620/639032499905436755.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Craft OverHaul</h2>
-                    <p class="project-description">With this mod, you can restore and re-add missing or removed Minecraft crafting recipes.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mangos Multiblock Library Revived -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/mangos-multiblock-library-revived', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1565/92/639015316885761961.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Mangos Multiblock Library Revived</h2>
-                    <p class="project-description">Provides some useful utilities for making Multiblock Structures Ported 1.21.1 NeoForge.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Construction Wands Revived -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/construction-wands-revived', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1542/518/639001224077943374.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Construction Wands Revived</h2>
-                    <p class="project-description">Construction Wands make building easier! (A new take on the Builder's Wand) ported 1.21.1 NeoForge.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Compact Machine Rooms Enabler -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/compact-machine-rooms-enabler', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1573/720/639019742596158576.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Compact Machine Rooms Enabler</h2>
-                    <p class="project-description">Automatically registers the Basic Room Templates datapack and all Compact Machines jei subtypes, removing the need for KubeJS or custom scripts.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Void Miners Remastered -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/void-miners-remastered', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1590/106/639028797049060750.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Void Miners Remastered</h2>
-                    <p class="project-description">A mod that allows mining resources from the void.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Create: Uncraftable Recipes -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/create-uncraftable-recipes', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1611/717/639039520461205351.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Create: Uncraftable Recipes</h2>
-                    <p class="project-description">Create Uncraftable Recipes adds survival-friendly crafting recipes for Create's creative-only items, allowing players to obtain them through challenging and late-game recipes.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Los Horneros -->
-            <div class="project-card">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP57yyYiRCeFIOrgymerSFUzjE-0nF8lLY0A&s" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Los Horneros</h2>
-                    <p class="project-description">Web Par Colegio Los Horneros</p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">PHP</span>
-                        <span class="tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Construction Wands Revived (2) -->
-            <!-- <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/construction-wands-revived', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/1633/81/639046278911714298.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Construction Wands Revived</h2>
-                    <p class="project-description">Construction Wands make building easier! (A new take on the Builder's Wand) ported 1.21.1 NeoForge.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Ultimate Foods -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/ultimate-foods', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1663/599/256/256/639059289870331686.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Ultimate Foods</h2>
-                    <p class="project-description">Ultimate Foods is a full rewrite and reimagining of my original mod Ultimate Utilities, expanding the concept into foods, tools, and utility items designed for gameplay, SMPs, and modpack customization.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Attained Drops Revived -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/attained-drops-revived', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1715/266/256/256/639090557746326288.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Attained Drops Revived</h2>
-                    <p class="project-description">The continuation of Attained Drops 2.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ultimate Angel Rings -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/ultimate-angel-rings', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1678/788/256/256/639067048612068170.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Ultimate Angel Rings</h2>
-                    <p class="project-description">Ultimate Angel Rings adds a powerful angelic ring that grants true creative-style flight in survival.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Commands Over Powered -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/commands-over-powered', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1614/351/256/256/639040529013168890.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Commands Over Powered</h2>
-                    <p class="project-description">Commands Over Powered is an essential commands mod for Minecraft servers, providing powerful utilities like fly, vanish, homes, teleportation, gamemode control, chat formatting, and much more — all designed to simplify server management.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modern Chickens -->
-            <div class="project-card" onclick="window.open('https://www.curseforge.com/minecraft/mc-mods/modern-chickens', '_blank')" style="cursor: pointer;">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://media.forgecdn.net/avatars/thumbnails/1539/670/256/256/638999643237806724.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Modern Chickens</h2>
-                    <p class="project-description">A port of setycz's Chickens mod, and timrwood's Roost mod to 1.21.1 combined into a single package for NeoForge.</p>
-                    <div class="project-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Minecraft Mod</span>
-                        <span class="tag">Mod Maintainer</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coming Soon 1 -->
-            <div class="project-card coming-soon">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Muy Pronto</h2>
-                    <p class="project-description">.....</p>
-                    <div class="project-tags">
-                        <span class="tag">????</span>
-                        <span class="tag">????</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coming Soon 2 -->
-            <div class="project-card coming-soon">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Muy Pronto</h2>
-                    <p class="project-description">.....</p>
-                    <div class="project-tags">
-                        <span class="tag">????</span>
-                        <span class="tag">????</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coming Soon 3 -->
-            <div class="project-card coming-soon">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Muy Pronto</h2>
-                    <p class="project-description">.....</p>
-                    <div class="project-tags">
-                        <span class="tag">????</span>
-                        <span class="tag">????</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coming Soon 4 -->
-            <div class="project-card coming-soon">
-                <div class="project-image" style="padding: 0; overflow: hidden;">
-                    <img src="https://w7.pngwing.com/pngs/51/36/png-transparent-rubber-stamp-coming-soon-miscellaneous-text-label-thumbnail.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Muy Pronto</h2>
-                    <p class="project-description">.....</p>
-                    <div class="project-tags">
-                        <span class="tag">????</span>
-                        <span class="tag">????</span>
-                    </div>
-                </div>
-            </div>
-
+    <div class="toolbar">
+        <div class="filters" id="filters" role="group" aria-label="Filtrar por categoría"></div>
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            
+            <input type="search" id="search" placeholder="Buscar proyecto…" aria-label="Buscar proyecto" autocomplete="off">
         </div>
     </div>
 
-    <footer>
-        <div class="footer-links">
-            <a href="index.html">inicio</a>
-            <a href="contacto.html">Contacto</a>
+    <p class="results-note" id="results-note" aria-live="polite"></p>
+
+    <div class="card-grid" id="grid"></div>
+
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-inner">
+        <p class="footer-copy">&copy; <span data-year></span> NadienDev</p>
+        <nav class="footer-nav" aria-label="Enlaces del pie">
+            <a href="index.html">Inicio</a>
             <a href="proyectos.html">Proyectos</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://discord.gg/E3yj2chy6R" class="social-icon" target="_blank"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://x.com/kingnadien" class="social-icon" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://github.com/SrNadien" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://youtube.com/@srnadien717" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-        <p style="margin-top: 20px; color: #00ff88;">Creado Por NadienDev</p>
-    </footer>
+            <a href="orenix.html">Orenix</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="admin.html" data-admin-link hidden>Panel</a>
+            <a href="https://www.curseforge.com/members/nadiendev/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+        </nav>
+        <div class="socials" id="footer-socials"></div>
+    </div>
+</footer>
 
-    <script>
-        // Crear partículas animadas
-        const particlesContainer = document.getElementById('particles');
-        const colors = ['#ff00ff', '#00ff88', '#00ffff', '#ff0066'];
-        
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            particle.style.background = `linear-gradient(to bottom, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
-            particle.style.opacity = Math.random() * 0.5 + 0.3;
-            particlesContainer.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 5000);
-        }
-        
-        setInterval(createParticle, 200);
-
-        // Animación suave al hacer hover en las tarjetas
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.borderColor = '#00ff88';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-            });
-        });
-    </script>
+<script src="js/site.js"></script>
+<script src="js/proyectos.js"></script>
 </body>
 </html>

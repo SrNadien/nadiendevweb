@@ -1,7 +1,3 @@
-/* ==========================================================================
-   NadienDev — página de proyectos (filtros + búsqueda)
-   ========================================================================== */
-
 (async () => {
     'use strict';
 
@@ -90,7 +86,6 @@
         }, 140);
     });
 
-    /* ---------- carga ---------- */
     let data;
     try {
         data = await loadContent();
@@ -112,7 +107,6 @@
         intro.textContent = data.profile.projectsIntro;
     }
 
-    /* Footer dinámico */
     const socials = data.socials || [];
     const footerSocials = document.getElementById('footer-socials');
     if (footerSocials) {

@@ -1,9 +1,3 @@
-/* ==========================================================================
-   NadienDev — panel de edición
-   Edita data/content.json sin tocar HTML. Publica vía la API de GitHub
-   o descarga el archivo para subirlo a mano (GitHub Pages no corre PHP).
-   ========================================================================== */
-
 (() => {
     'use strict';
 
@@ -21,8 +15,6 @@
     let dirty = false;
     let editingIndex = -1;
     let filter = '';
-
-    /* ====================== utilidades ====================== */
 
     let toastTimer;
     function toast(message, isError = false) {
@@ -70,8 +62,6 @@
 
     const serialize = () => JSON.stringify(data, null, 2) + '\n';
 
-    /* ====================== pestañas ====================== */
-
     $$('.admin-tab').forEach((tab) => {
         tab.addEventListener('click', () => {
             $$('.admin-tab').forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
@@ -80,8 +70,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
-
-    /* ====================== campos simples (data-bind) ====================== */
 
     const getPath = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 
@@ -119,8 +107,6 @@
 
         fieldsWired = true;
     }
-
-    /* ====================== listas repetibles ====================== */
 
     const REPEATERS = {
         stats: {
@@ -178,7 +164,6 @@
         }
     };
 
-    /* Devuelve (creando si hace falta) el array que edita cada repetidor */
     function repeaterList(name) {
         const path = REPEATERS[name].path || name;
         let list = getPath(data, path);
@@ -266,8 +251,6 @@
         });
     });
 
-    /* ====================== proyectos ====================== */
-
     function renderProjects() {
         const list = data.projects || [];
         const needle = filter.toLowerCase().trim();
@@ -352,8 +335,6 @@
 
     $('#btn-new').addEventListener('click', () => openModal(-1));
 
-    /* ---------- modal ---------- */
-
     const modal = $('#modal');
 
     const BLANK_PROJECT = () => ({
@@ -429,8 +410,6 @@
         toast(isNew ? 'Proyecto agregado.' : 'Proyecto actualizado.');
     });
 
-    /* ====================== GitHub ====================== */
-
     const ghConfig = () => ({
         owner: $('#gh-owner').value.trim(),
         repo: $('#gh-repo').value.trim(),
@@ -443,7 +422,7 @@
         let saved = {};
         try {
             saved = JSON.parse(localStorage.getItem(GH_KEY) || '{}');
-        } catch (err) { /* configuración corrupta: se ignora */ }
+        } catch (err) {}
 
         $('#gh-owner').value = saved.owner || 'SrNadien';
         $('#gh-repo').value = saved.repo || 'nadiendevwebb';
@@ -526,7 +505,7 @@
                 const current = await ghRequest(`${contentsUrl()}?ref=${encodeURIComponent(branch)}`);
                 sha = current.sha;
             } catch (err) {
-                sha = undefined; // el archivo todavía no existe: se crea
+                sha = undefined;
             }
 
             await ghRequest(contentsUrl(), {
@@ -553,8 +532,6 @@
 
     $('#btn-commit').addEventListener('click', commitToGitHub);
     $('#btn-save').addEventListener('click', commitToGitHub);
-
-    /* ====================== descarga / importación ====================== */
 
     $('#btn-download').addEventListener('click', () => {
         const blob = new Blob([serialize()], { type: 'application/json' });
@@ -596,8 +573,6 @@
         await loadData(true);
         toast('Contenido recargado.');
     });
-
-    /* ====================== arranque ====================== */
 
     function renderAll() {
         bindFields();

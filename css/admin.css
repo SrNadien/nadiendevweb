@@ -1,7 +1,3 @@
-/* ==========================================================================
-   NadienDev — panel de edición
-   ========================================================================== */
-
 .admin {
     display: grid;
     grid-template-columns: 232px 1fr;
@@ -10,7 +6,6 @@
     padding: 40px 0 80px;
 }
 
-/* ---------- Barra lateral ---------- */
 .admin-side {
     position: sticky;
     top: calc(var(--header-h) + 24px);
@@ -50,7 +45,6 @@
     margin: 12px 0;
 }
 
-/* ---------- Panel principal ---------- */
 .admin-main { min-width: 0; }
 
 .admin-panel {
@@ -82,7 +76,6 @@
     margin-bottom: 22px;
 }
 
-/* ---------- Campos ---------- */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -142,7 +135,6 @@
 
 .check input { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
 
-/* ---------- Listas editables (stats, skills, redes) ---------- */
 .repeat-item {
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -161,7 +153,6 @@
 
 .repeat-item__head strong { font-size: 14px; }
 
-/* ---------- Lista de proyectos ---------- */
 .plist { display: grid; gap: 8px; }
 
 .prow {
@@ -245,7 +236,6 @@
 .icon-btn:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
 .icon-btn--danger:hover { color: #ff8f8f; border-color: rgba(255,143,143,.4); background: rgba(255,143,143,.1); }
 
-/* ---------- Modal de edición ---------- */
 .modal {
     position: fixed;
     inset: 0;
@@ -291,7 +281,6 @@
     border-top: 1px solid var(--border);
 }
 
-/* ---------- Avisos ---------- */
 .callout {
     display: flex;
     gap: 13px;
@@ -317,7 +306,6 @@
     color: var(--text);
 }
 
-/* ---------- Toast ---------- */
 .toast {
     position: fixed;
     left: 50%;
@@ -344,7 +332,6 @@
 .toast i { color: var(--accent); }
 .toast--error i { color: #ff8f8f; }
 
-/* ---------- Estado de guardado ---------- */
 .save-state {
     font-size: 13px;
     font-family: var(--mono);
@@ -353,7 +340,6 @@
 
 .save-state.is-dirty { color: #ffd479; }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 860px) {
     .admin { grid-template-columns: 1fr; }
 

@@ -1,10 +1,3 @@
-# Servidor estático para probar el sitio en local.
-# Uso:  .\serve.ps1          -> http://localhost:8000
-#       .\serve.ps1 -Port 3000
-#
-# El sitio lee data/content.json con fetch(), que no funciona abriendo los HTML
-# con doble clic (file://). Por eso hace falta un servidor aunque sea local.
-
 param(
     [int]$Port = 8000,
     [switch]$NoBrowser
@@ -65,7 +58,6 @@ try {
             $path = Join-Path $path 'index.html'
         }
 
-        # Bloquea rutas fuera de la carpeta del proyecto
         $full = [System.IO.Path]::GetFullPath($path)
         if (-not $full.StartsWith([System.IO.Path]::GetFullPath($root), [StringComparison]::OrdinalIgnoreCase)) {
             $full = $null
@@ -89,7 +81,6 @@ try {
             Write-Host ("  404  /{0}" -f $relative) -ForegroundColor Yellow
         }
 
-        # Sin cache, para ver los cambios al recargar
         $response.Headers.Add('Cache-Control', 'no-store')
         $response.ContentLength64 = $bytes.Length
         $response.OutputStream.Write($bytes, 0, $bytes.Length)

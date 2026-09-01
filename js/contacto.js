@@ -1,7 +1,3 @@
-/* ==========================================================================
-   NadienDev — página de contacto
-   ========================================================================== */
-
 (async () => {
     'use strict';
 
@@ -11,7 +7,6 @@
     const note = document.getElementById('form-note');
     const submitBtn = document.getElementById('submit-btn');
 
-    /* ---------- contenido dinámico ---------- */
     try {
         const data = await loadContent();
         const profile = data.profile || {};
@@ -48,7 +43,6 @@
         console.error(err);
     }
 
-    /* ---------- envío sin recargar la página ---------- */
     const show = (message, ok) => {
         note.hidden = false;
         note.textContent = message;

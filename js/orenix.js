@@ -1,7 +1,3 @@
-/* ==========================================================================
-   NadienDev — página de Orenix
-   ========================================================================== */
-
 (async () => {
     'use strict';
 
@@ -22,7 +18,6 @@
         if (el && value) el.textContent = value;
     };
 
-    /* ---------- banner ---------- */
     const banner = document.getElementById('banner-img');
     if (banner && orenix.banner) banner.src = orenix.banner;
 
@@ -45,12 +40,10 @@
         cta.innerHTML = `<i class="fa-regular fa-paper-plane"></i> ${escapeHTML(orenix.ctaText)}`;
     }
 
-    /* ---------- stack ---------- */
     document.getElementById('orenix-stack').innerHTML = (orenix.stack || [])
         .map((t) => `<span class="tag tag--accent">${escapeHTML(t)}</span>`)
         .join('');
 
-    /* ---------- equipo ---------- */
     const team = orenix.team || [];
     if (team.length) {
         document.getElementById('equipo').hidden = false;
@@ -78,7 +71,6 @@
         }).join('');
     }
 
-    /* ---------- servicios ---------- */
     document.getElementById('orenix-services').innerHTML = (orenix.services || []).map((s) => `
         <article class="orenix-service reveal">
             <div class="orenix-service__icon"><i class="${escapeHTML(s.icon || 'fa-solid fa-cube')}"></i></div>
@@ -86,8 +78,6 @@
             <p>${escapeHTML(s.text)}</p>
         </article>`).join('');
 
-    /* ---------- productos vinculados ---------- */
-    /* Se respeta el orden de orenix.products, no el del array de proyectos */
     const products = (orenix.products || [])
         .map((id) => (data.projects || []).find((p) => p.id === id))
         .filter((p) => p && p.visible !== false);
@@ -97,7 +87,6 @@
         document.getElementById('orenix-products').innerHTML = products.map(projectCard).join('');
     }
 
-    /* ---------- footer ---------- */
     const footerSocials = document.getElementById('footer-socials');
     if (footerSocials) {
         footerSocials.innerHTML = (data.socials || []).map((s) => `

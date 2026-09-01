@@ -1,25 +1,14 @@
-/* ===================================================================
- * Calvin 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
-
 (function($) {
 
     "use strict";
     
     const cfg = {
-                scrollDuration : 800, // smoothscroll duration
-                mailChimpURL   : ''   // mailchimp url
+                scrollDuration : 800,
+                mailChimpURL   : ''
                 };
 
-    // Add the User Agent to the <html>
-    // will be used for IE10/IE11 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; rv:11.0))
-    // const doc = document.documentElement;
-    // doc.setAttribute('data-useragent', navigator.userAgent);
 
 
-   /* Preloader
-    * -------------------------------------------------- */
     const ssPreloader = function() {
 
         const preloader = document.querySelector('#preloader');
@@ -39,16 +28,10 @@
             });
         });
 
-        // force page scroll position to top at page refresh
-        // window.addEventListener('beforeunload' , function () {
-        //     window.scrollTo(0, 0);
-        // });
 
-    }; // end ssPreloader
+    };
 
 
-   /* Mobile Menu
-    * ---------------------------------------------------- */ 
     const ssMobileMenu = function() {
 
         const $navWrap = $('.s-header__nav-wrap');
@@ -72,8 +55,6 @@
             }
         });
 
-        // open (or close) submenu items in mobile view menu. 
-        // close all the other open submenu items.
         $('.s-header__nav .has-children').children('a').on('click', function (e) {
             e.preventDefault();
 
@@ -93,11 +74,9 @@
             }
         });
 
-    }; // end ssMobileMenu
+    };
 
 
-   /* Search
-    * ------------------------------------------------------ */
     const ssSearch = function() {
 
         const searchWrap = document.querySelector('.s-header__search');
@@ -143,11 +122,9 @@
         searchField.setAttribute('placeholder', 'Search for...');
         searchField.setAttribute('autocomplete', 'off');
 
-    }; // end ssSearch
+    };
 
 
-   /* Masonry
-    * ------------------------------------------------------ */
     const ssMasonry = function() {
         const containerBricks = document.querySelector('.bricks-wrapper');
         if (!containerBricks) return;
@@ -163,11 +140,9 @@
 
         });
 
-    }; // end ssMasonry
+    };
 
 
-   /* Slick Slider
-    * ------------------------------------------------------ */
     const ssSlickSlider = function() {
 
         const $animateEl = $('.animate-this');
@@ -205,11 +180,9 @@
             $heroSlider.slick('slickNext');
         });
 
-    }; // end ssSlickSlider
+    };
 
 
-   /* Animate on Scroll
-    * ------------------------------------------------------ */
     const ssAOS = function() {
         
         AOS.init( {
@@ -221,11 +194,9 @@
             disable: 'mobile'
         });
 
-    }; // end ssAOS
+    };
 
 
-   /* Alert Boxes
-    * ------------------------------------------------------ */
     const ssAlertBoxes = function() {
 
         const boxes = document.querySelectorAll('.alert-box');
@@ -245,11 +216,9 @@
 
         })
 
-    }; // end ssAlertBoxes
+    };
 
 
-   /* Smooth Scrolling
-    * ------------------------------------------------------ */
     const ssSmoothScroll = function() {
         
         $('.smoothscroll').on('click', function (e) {
@@ -266,11 +235,9 @@
             });
         });
 
-    }; // end ssSmoothScroll
+    };
 
 
-   /* Back to Top
-    * ------------------------------------------------------ */
     const ssBackToTop = function() {
 
         const pxShow = 900;
@@ -278,7 +245,6 @@
 
         if (!goTopButton) return;
 
-        // Show or hide the button
         if (window.scrollY >= pxShow) goTopButton.classList.add("link-is-visible");
 
         window.addEventListener('scroll', function() {
@@ -289,12 +255,10 @@
             }
         });
 
-    }; // end ssBackToTop
+    };
 
 
 
-   /* initialize
-    * ------------------------------------------------------ */
     (function ssInit() {
 
         ssPreloader();

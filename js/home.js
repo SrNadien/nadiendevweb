@@ -1,7 +1,3 @@
-/* ==========================================================================
-   NadienDev — portada
-   ========================================================================== */
-
 (async () => {
     'use strict';
 
@@ -28,7 +24,6 @@
 
     const { profile = {}, stats = [], skills = [], socials = [], projects = [] } = data;
 
-    /* Hero */
     set('hero-role', profile.role);
     set('hero-tagline', profile.tagline);
     set('footer-about', profile.about || profile.tagline);
@@ -42,14 +37,12 @@
     document.getElementById('hero-socials').innerHTML = socialsHTML(socials);
     document.getElementById('footer-socials').innerHTML = socialsHTML(socials);
 
-    /* Estadísticas */
     document.getElementById('stats').innerHTML = stats.map((s) => `
         <div class="stat">
             <div class="stat__value">${escapeHTML(s.value)}</div>
             <div class="stat__label">${escapeHTML(s.label)}</div>
         </div>`).join('');
 
-    /* Skills */
     document.getElementById('skills').innerHTML = skills.map((s) => `
         <article class="skill-card reveal">
             <div class="skill-card__icon"><i class="${escapeHTML(s.icon)}"></i></div>
@@ -60,7 +53,6 @@
             </div>
         </article>`).join('');
 
-    /* Destacados */
     const featured = projects
         .filter((p) => p.visible !== false && p.featured)
         .slice(0, 6);

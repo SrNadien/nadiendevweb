@@ -1,8 +1,3 @@
-/* ==========================================================================
-   NadienDev — runtime compartido
-   Carga data/content.json y expone helpers de render.
-   ========================================================================== */
-
 const NadienDev = (() => {
     'use strict';
 
@@ -17,8 +12,6 @@ const NadienDev = (() => {
         app:      { label: 'Sistemas',  singular: 'Sistema' },
         bot:      { label: 'Bots',      singular: 'Bot' }
     };
-
-    /* ---------- utilidades ---------- */
 
     const escapeHTML = (value) => String(value ?? '').replace(
         /[&<>"']/g,
@@ -42,8 +35,6 @@ const NadienDev = (() => {
             .join('');
     }
 
-    /* ---------- datos ---------- */
-
     let cache = null;
 
     async function loadContent() {
@@ -53,8 +44,6 @@ const NadienDev = (() => {
         cache = await res.json();
         return cache;
     }
-
-    /* ---------- render de tarjetas ---------- */
 
     function projectCard(project) {
         const hasLink = Boolean(project.url);
@@ -102,8 +91,6 @@ const NadienDev = (() => {
     </div>
 </${tag}>`;
     }
-
-    /* ---------- comportamiento global ---------- */
 
     function initHeader() {
         const header = document.querySelector('.site-header');
@@ -155,9 +142,6 @@ const NadienDev = (() => {
         items.forEach((el) => observer.observe(el));
     }
 
-    /* Enlace al panel: oculto salvo que este navegador lo tenga activado.
-       Se activa visitando cualquier página con ?admin=on y se apaga con ?admin=off
-       (o con Ctrl + Alt + A). No es seguridad: solo evita mostrarlo a las visitas. */
     const ADMIN_KEY = 'nadiendev:admin';
 
     const adminEnabled = () => {
